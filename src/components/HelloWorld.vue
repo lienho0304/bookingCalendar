@@ -129,14 +129,15 @@ export default {
             allDay: false,
             backgroundColor: 'blue',
             extendedProps:{
-              icon :'cloud'
+              icon :'cloud',
+              quantity : 0
             }
           },
 
           // other events here...
         ],
         displayEventTime:false,
-        nowIndicator: true,
+        // nowIndicator: true,
         now: new Date() ,
         businessHours: [ // specify an array instead
             {
@@ -152,7 +153,6 @@ export default {
           ],
       
         eventContent: function(info) {
-          console.log(info)
              let italicEl = document.createElement('div')
              italicEl.innerHTML =   `<div class ="custom-title"><div>${info.event.title}</div><div class="text-center"><i class="calendar-icon fas fa-plus"></i></span></div></div>`
             let arrayOfDomNodes = [ italicEl ]
@@ -199,7 +199,7 @@ export default {
       this.calendarOptions.events.push({
       resourceId: 'a',
       title: 'my event',
-      start: new Date()
+      start: '2021-10-05T09:00:00'
       
     })
 
@@ -232,12 +232,12 @@ export default {
   display:flex;
   justify-content:space-between;
   align-items: center;
+  margin:10px
 }
 
 .custom-title {
   display:flex;
   justify-content:space-between;
-  margin-top:5px
 }
 
 .fc-scrollgrid-section-body   tr{
@@ -247,4 +247,25 @@ export default {
  .fc-scrollgrid-section-body:nth-child(1)   tr{
   height: 100px;
  }
+
+td.fc-daygrid-day.fc-day.fc-day-tue.fc-day-today{
+  background:white
+}
+td.fc-daygrid-day.fc-day.fc-day-tue.fc-day-today a.fc-daygrid-day-number{
+    border: 1px solid black;
+    width: 25px;
+    height: 25px;
+    background-color: pink;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+.fc-timegrid-event-harness.fc-timegrid-event-harness-inset {
+  margin-right:10px
+}
+
+.fc-timegrid-event-harness.fc-timegrid-event-harness-inset:last-child{
+  margin-right:0
+}
 </style>
